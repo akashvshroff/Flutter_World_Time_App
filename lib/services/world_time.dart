@@ -7,7 +7,7 @@ class WorldTime {
   String flag; //url path for the asset flag icon
   String url; //location url for API endpoint
 
-  WorldTime({this.location, this.time, this.flag, this.url});
+  WorldTime({this.location, this.flag, this.url});
 
   void getTime() async {
     Response response = await get('http://worldtimeapi.org/api/timezone/$url');
