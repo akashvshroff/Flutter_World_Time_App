@@ -9,17 +9,23 @@ class WorldTime {
 
   WorldTime({this.location, this.flag, this.url});
 
-  void getTime() async {
-    Response response = await get('http://worldtimeapi.org/api/timezone/$url');
-    Map data = jsonDecode(response.body);
-    //print(data);
+  Future<void> getTime() async {
+    try {
+      Response response =
+          await get('http://worldtimeapi.org/api/timezone/$url');
+      Map data = jsonDecode(response.body);
+      //print(data);
 
-    //get properties from data
-    String datetime = data['datetime'];
+      //get properties from data
+      String datetime = data['datetime'];
 
-    //create a datetime object
-    DateTime now = DateTime.parse(datetime);
+      //create a datetime object
+      DateTime now = DateTime.parse(datetime);
 
-    time = now.toLocal().toString();
+      time = now.toLocal().toString();
+    } catch (e) {
+      print('caught error $e');
+      time = 'could not get time data';
+    }
   }
 }
