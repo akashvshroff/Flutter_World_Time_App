@@ -14,7 +14,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
         body: SafeArea(
       child: Container(
-        color: Colors.blueGrey,
         padding: const EdgeInsets.fromLTRB(0, 100.0, 0, 0),
         child: Column(children: [
           FlatButton.icon(
@@ -23,11 +22,10 @@ class _HomeState extends State<Home> {
             },
             icon: Icon(
               Icons.edit_location,
-              color: Colors.white,
             ),
             label: Text(
               'EDIT LOCATION',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(),
             ),
           ),
           SizedBox(
@@ -38,13 +36,17 @@ class _HomeState extends State<Home> {
             children: [
               Text(data['location'].toUpperCase(),
                   style: TextStyle(
-                      fontSize: 28, letterSpacing: 2, color: Colors.white))
+                    fontSize: 28,
+                    letterSpacing: 2,
+                  ))
             ],
           ),
           SizedBox(height: 30.0),
           Text(
             data['time'],
-            style: TextStyle(fontSize: 66.0, color: Colors.white),
+            style: TextStyle(
+              fontSize: 66.0,
+            ),
           )
         ]),
       ),
