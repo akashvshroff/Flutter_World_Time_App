@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
         body: SafeArea(
       child: Container(
-        color: Colors.blueGrey[700],
+        color: Colors.blueGrey,
         padding: const EdgeInsets.fromLTRB(0, 100.0, 0, 0),
         child: Column(children: [
           FlatButton.icon(
@@ -26,12 +26,12 @@ class _HomeState extends State<Home> {
               color: Colors.white,
             ),
             label: Text(
-              'CHANGE LOCATION',
+              'EDIT LOCATION',
               style: TextStyle(color: Colors.white),
             ),
           ),
           SizedBox(
-            height: 40.0,
+            height: 60.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
