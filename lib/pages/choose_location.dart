@@ -38,6 +38,11 @@ class _ChooseLocationState extends State<ChooseLocation> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     locations.sort((a, b) => a.location.compareTo(b.location));
     return Scaffold(

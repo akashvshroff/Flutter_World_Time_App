@@ -12,19 +12,30 @@ class WorldTime {
   WorldTime({this.location, this.flag, this.url});
 
   Future<void> getTime() async {
+    String getUrl = 'http://worldtimeapi.org/api/timezone/$url';
+    print(getUrl);
     try {
-      Response response =
-          await get('http://worldtimeapi.org/api/timezone/$url');
+      Response response = await get(getUrl);
       Map data = jsonDecode(response.body);
       //print(data);
 
       //get properties from data
       String datetime = data['datetime'];
+      String offset = data['utc_offset'];
+      String sign = offset.substring(0, 1);
+      offset = offset.substring(1);
+      List comps = offset.split(':');
+      int hour = int.parse(comps[0]);
+      int minute = int.parse(comps[1]);
 
       //create a datetime object
-      DateTime now = DateTime.parse(datetime).toLocal();
-      isDaytime = now.hour > 6 && now.hour < 18 ? true : false;
-      time = DateFormat.jm().format(now);
+      DateTime cur = DateTime.parse(datetime);
+      cur = sign == '+'
+          ? cur.add(Duration(hours: hour, minutes: minute))
+          : cur.subtract(Duration(hours: hour, minutes: minute));
+
+      isDaytime = cur.hour > 6 && cur.hour < 18 ? true : false;
+      time = DateFormat.jm().format(cur);
     } catch (e) {
       print('caught error $e');
       time = 'could not get time data';
