@@ -33,7 +33,7 @@ class WorldTime {
           ? cur.add(Duration(hours: hour, minutes: minute))
           : cur.subtract(Duration(hours: hour, minutes: minute));
 
-      isDaytime = cur.hour > 6 && cur.hour < 18 ? true : false;
+      isDaytime = cur.hour >= 6 && cur.hour < 18 ? true : false;
       time = DateFormat.jm().format(cur);
     } catch (e) {
       print('caught error $e');
