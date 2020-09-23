@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
 
     //set background
     String bgImage = data['isDaytime'] ? 'day.jpg' : 'night.jpg';
-    Color bgColor = data['isDaytime'] ? Colors.blue[100] : Colors.black;
+    Color bgColor = data['isDaytime'] ? Colors.blueGrey : Colors.black;
     Color textColor = data['isDaytime'] ? Colors.black : Colors.white;
 
     return Scaffold(
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/$bgImage'), fit: BoxFit.cover)),
-            padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
             child: Column(children: [
               FlatButton.icon(
                 onPressed: () async {
@@ -51,17 +51,24 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
-                height: 40.0,
+                height: 20.0,
+              ),
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/${data['flag']}'),
+                radius: 70.0,
+              ),
+              SizedBox(
+                height: 20.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(data['location'].toUpperCase(),
                       style: TextStyle(
-                          fontSize: 44, letterSpacing: 2, color: textColor))
+                          fontSize: 44, letterSpacing: 2, color: textColor)),
                 ],
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 5.0),
               Text(
                 data['time'],
                 style: TextStyle(
