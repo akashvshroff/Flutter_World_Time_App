@@ -5,6 +5,7 @@ import 'package:world_time_app/pages/loading.dart';
 
 void main() {
   runApp(MaterialApp(
+    theme: ThemeData(fontFamily: 'Fjalla'),
     initialRoute: '/',
     routes: {
       '/': (context) => Loading(),

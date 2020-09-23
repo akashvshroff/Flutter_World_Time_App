@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
               ),
               CircleAvatar(
                 backgroundImage: AssetImage('assets/${data['flag']}'),
-                radius: 70.0,
+                radius: 60.0,
               ),
               SizedBox(
                 height: 20.0,
@@ -65,7 +65,10 @@ class _HomeState extends State<Home> {
                 children: [
                   Text(data['location'].toUpperCase(),
                       style: TextStyle(
-                          fontSize: 44, letterSpacing: 2, color: textColor)),
+                        fontSize: 44,
+                        letterSpacing: 2,
+                        color: textColor,
+                      )),
                 ],
               ),
               SizedBox(height: 5.0),
