@@ -10,7 +10,7 @@
 
     - A location page where the user can change the location for which they want the data.
 
-    ![alt text](https://github.com/akashvshroff/Flutter_World_Time_App/blob/master/runtime_images/choose_locations.png "Locations")
+    ![alt text](https://github.com/akashvshroff/Flutter_World_Time_App/blob/master/runtime_images/choose_location.png "Locations")
 
     - A loading page that is displayed when the app starts up, it consists of a spinner widget built using the flutter_spinkit package.
 
